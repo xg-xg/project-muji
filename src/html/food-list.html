@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>食品列表</title>
+    <link rel='shortcut icon' href="/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../css/food-list.css">
+</head>
+<body>
+    <!--header容器-->
+        <header id="header-container"></header>
+     <!--选项容器-->
+        <div id="option-container"></div>
+        <div id="food-top">
+            <a href="javascript:;">全部</a>&nbsp;&nbsp;&nbsp;
+            <a href="javascript:;">食品</a>
+        </div>
+        <div id="food-center">
+            <a href="javascript:;">综合排序</a>&nbsp;&nbsp;&nbsp;
+            <a href="javascript:;">按新品</a>&nbsp;&nbsp;&nbsp;
+            <a href="javascript:;">按销量</a>&nbsp;&nbsp;&nbsp;
+            <a href="javascript:;">按价格</a>&nbsp;&nbsp;&nbsp;
+        </div>
+
+    <div id="food-container">
+        <ul id="food-list">
+            
+        </ul>
+        <script type="text/html" id="food-list-item">
+           {{each list item}}
+            <li data-id="{{item.id}}">
+                <a href="./detail.html?id={{item.id}}"> <img src="{{item.image}}"></a>
+               
+                <p>{{item.title}}</p>
+                <span>￥{{item.price}}</span>
+            </li>
+           {{/each}}
+        </script>
+             
+       
+    </div>
+    <script src='/libs/require/require.js' data-main="/js/food-list"></script>
+</body>
+</html>

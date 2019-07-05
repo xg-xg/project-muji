@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>购物车</title>
+    <link rel='shortcut icon' href="/images/favicon.png" type="image/png"> 
+   <link rel="stylesheet" href="../css/cart.css">
+</head>
+<body>
+    <!--头部-->
+    <header id="header-container"></header>
+    <!-- 删除商品提示框-->
+     <div id="toast">删除成功</div> 
+    <!--顶部标题-->
+    <div id="cart-title">
+        <span>购物车</span>
+        <span id="edit-btn">编辑</span>
+        <span id="ok-btn">完成</span>
+    </div>
+
+    <div id="cart-container">
+        <div id="cart-container-top-after"></div>
+        <script type="text/html" id="cart-template">
+            {{each cart item}}
+            <div class="left">
+            <input type="checkbox" class="choose">
+           <a href="./detail.html?id={{item.id}}"><img src="{{item.image[0]}}" alt=""></a> 
+            <p>{{item.title}}</p>
+            <dl>
+                <dt>{{item.des}}</dt>
+                <dd>￥{{item.price}}</dd>
+            </dl>
+            </div>
+            <div class="right">
+                <span class="sub">-</span>
+                <span class="num">{{item.num}}</span>
+                <span class="add">+</span>
+            </div>
+            <div class="delete">删除</div>
+            
+            {{/each}}
+        </script>
+        <div id="cart-container-top-before">
+           <p> ---购物车是空的---</p>
+        </div>
+        <div class="recommend">
+                <div class="recommend-wrap">
+                    <div class="recommend-title clear">
+                        <h3>推荐商品</h3>
+                    </div>
+                    <ul class="clear" id="index-recommend-list"></ul>
+                    <script type="text/html" id="cart-recommend">
+                        {{each list item}}
+                       <li data-id="{{item.id}}">
+                           <a href="./detail.html?id={{item.id}}"> <img src="{{item.image}}" alt=""></a>
+                          
+                           <p>{{item.title}}</p>
+                           <span>￥{{item.price}}</span>                       
+                       </li>
+                       {{/each}}
+                    </script>
+                    
+                </div>
+            </div>
+          <div id="finish">以加载全部</div>
+    </div>
+    <div id="go-shop">
+    
+        <input type="checkbox" name="" id="choose-all" >
+        <span id="all">全选</span>
+        <span id="all-shop"></span>件商品
+        <span id="hj">合计:<span id="money"></span></span>        
+    
+    </div>
+    <div id="pay-money">
+        <form name=form1 method="POST" action="/" target=_blank>
+        
+        <input type="button" name="button" value="去结算"  id="button">
+        </form>
+    </div>
+    
+    <!--尾部-->
+    <footer id="foot-container"></footer>
+
+    <script src="/libs/require/require.js" data-main="/js/cart.js"></script>
+</body>
+</html>

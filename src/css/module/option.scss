@@ -1,0 +1,109 @@
+
+#option-container{
+  
+  width: 100%;
+  background-color:rgba(0,0,0,0);
+  height: 40px;
+  .option-wrap{
+    background: #f9f9f9;
+    width: 1016px;
+   
+    margin-left:119px; 
+    height: 40px;
+    .search{
+      margin-top: 6px;
+      margin-left: 550px;
+      float: left;
+      width: 60px;
+      height: 30px;
+      
+      a{
+        display: inline-block;
+        width: 37px;
+        height: 30px;
+        background: url(/images/search.png);
+      }
+      
+    }
+    .option{
+      .option-left{
+        margin-top: 6px;
+        float:left;
+        span{
+          color: #ffffff;
+          line-height: 20px;
+          text-align: center;
+          font-size: 13px;
+          right: 390px;
+          border-radius: 50%;
+          top: 70px;
+          position: absolute;
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          background: #7f0019;
+        }
+        a{
+          margin-right: 20px;
+          display: inline-block;
+          width: 30px;
+          height: 30px;
+          background: url(/images/option.png) no-repeat;
+        }
+        a:nth-of-type(2){
+          background: url(/images/message.png) no-repeat;
+        }
+        a:nth-of-type(3){
+          background: url(/images/cart.png) no-repeat;
+        }
+      }
+      .option-center{
+        float: left;
+        margin-top:8px;
+       
+        span{
+          cursor: pointer;
+          text-align: center;
+          margin-top:5px;
+          font-size: 12px;
+          color: #7f0019;
+        }
+      }
+      .option-right{
+        float: right;
+        margin-right:15px; 
+        button{
+          outline: none;
+          border-color: #7f0019;
+          margin-top: 4px;
+          width: 60px;
+          height: 30px;
+          border-radius:15px; 
+          background: #ffffff;
+          cursor: pointer;
+          
+          a{
+            color: #7f0019;
+            font-size: 12px;
+            text-align: center
+          }
+          
+        }
+        #login-success{
+        
+          margin-top:12px; 
+          float: right;
+          font-size: 14px;
+          display: none;
+          #name{
+            margin-right: 10px;
+          }
+          #exit{
+            cursor: pointer;
+            color: #7f0019;
+          }
+        }
+      }
+    }
+  }
+}

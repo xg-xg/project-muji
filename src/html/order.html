@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>结算页</title>
+    <link rel='shortcut icon' href="/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../css/order.css">
+</head>
+<body>
+    <!-- 头部容器 -->
+    <header id="header-container"></header>
+    <!-- title -->
+    <div id="title">
+        <div id="title-wrap">
+        <div id="break"></div>
+        <p>订单结算</p>
+        </div>
+    </div>
+    <div id="main">
+        <div id="main-wrap">
+            <div id="main-wrap-top">
+            <a href="javascript:;"><p>还没有填写地址，请快去添加吧</p></a>
+            </div>
+            <div id="hide">
+            </div>
+            <div id="show">
+                
+            </div>
+            <script type="text/html" id="order-template">
+                {{each data item}}
+                <div id="show-left">
+                    <img src="{{item.image[0]}}}" alt="">
+                </div>
+                <div id="show-center">
+                    <p>{{item.title}}</p>
+                    <div id="ruler">尺码：{{item.des}}g</div>
+                    <span>￥{{item.price}}</span>
+                </div>
+                <div id="show-right">
+                    <span>x{{item.num}}</span>
+                </div>
+                {{/each}}
+            </script>
+            <div id="send">
+                <p>配送方式</p>
+                <div id="send-top">
+                    <span class="sp1">快递</span>
+                    <span class="sp2">根据收货地区自动分配</span>
+                </div>
+                <div id="send-bottom">
+                    <span class="sp1">运费</span>
+                    <span class="sp2">￥0</span>
+                </div>
+               
+            </div>
+            <div id="pay">
+                <p>支付方式</p>
+                <span>支付宝</span>
+                <div id="bank"></div>
+            </div>
+        </div>
+        
+    </div>
+    <div id="bottom">
+        <div id="bottom-wrap">
+        <p><span>5</span>件商品</p>
+        <p>应付:<span>￥45</span></p>
+        <div id="toPay">去付款</div>
+        </div>
+    </div>
+    <!-- 先是隐藏，点击支付方式  弹出 -->
+    <div id="model"></div>
+    <script src="/libs/require/require.js" data-main="/js/order.js"></script>
+</body>
+</html>

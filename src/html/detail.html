@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>商品详情</title>
+    <link rel='shortcut icon' href="/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../css/detail.css">
+</head>
+<body>
+    <!--头部容器-->
+    <header id="header-container"></header>
+    <!--选项容器-->
+    <div id="option-container"></div>
+    <!--商品展示区域-->
+    <div class="shop-show" >
+        <div class="shop-show-wrap" id="detail-container" ></div> 
+        <script type="text/html" id="detail-template">
+        <!--中图片的容器-->
+            <div id="middle-image-container">
+                <img  class="zoom-img" src="{{data.image[0]}}" data-zoom-img="{{data.image[0]}}">
+            </div>
+       <!--小图片的容器-->
+            <div id="small-image-container">
+                <ul>
+                    <li id="0">
+                        <a href="javascript:;" data-image="{{data.image[0]}}" data-zoom-image="{{data.image[0]}}">
+                        <img src="{{data.image[0]}}" alt="">
+                        </a>
+                    </li>
+                    <li id="1">
+                        <a href="javascript:;" data-image="{{data.image[1]}}" data-zoom-image="{{data.image[1]}}">
+                        <img src="{{data.image[1]}}" alt="">
+                        </a>
+                    </li>
+                    <li id="2">
+                        <a href="javascript:;" data-image="{{data.image[2]}}" data-zoom-image="{{data.image[2]}}">
+                            <img src="{{data.image[2]}}" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p>{{data.title}}</p>
+            <span>￥{{data.price}}</span> 
+        </script>
+        <div id="toast">添加购物车成功</div>
+</div>
+    <!--商品说明-->
+    <div class="shop-description">
+        <div class="shop-description-wrap">
+           <p id="number"></p>
+           <script type="text/html" id="bh">
+            商品编号：<span id="shop-num">{{data.number}}</span>
+           </script>
+          
+           <p>此食品为食品类商品，非质量问题出售该不售换</p>
+        </div>
+    </div>
+    <!--商品参数-->
+    <div class="shop-info">
+        <div class="shop-info-wrap">
+            <div class="shop-info-title">
+            <span>产品参数</span>
+            </div>
+            <div class="shop-info-data"></div>
+            <script type="text/html" id="info-template">
+                <p>商品名称 <span id="shop-name">{{data.title}}</span></p>
+                <p>规格名称<span id="shop-weight">{{data.number}}</span></p>
+                <p>原产地<span id="shop-position">{{data.place}}</span></p>
+            </script>
+        </div>
+    </div>
+    <!--操作-->
+    <div class="shop-move">
+        <div class="shop-move-wrap">
+            <a href="javascript:;"><span>客服</span></a>
+            <span id="add-into-cart">加入购物车</span>
+            <span id="buy-now">立即购买</span>
+        </div>
+    </div>
+    <!--点击加入购物车后弹出的模块-->
+    <div class="shop-add"></div>
+    <script type="text/html" id="shop-template">
+        <div class="shop-add-wrap">
+            <div class="shop-add-top">
+                <div class="shop-add-top-left">
+                    <img src="{{data.image[0]}}" alt="" id='s-small' name='s-small'> 
+                   
+                </div>
+                <div class="shop-add-top-right">
+                    <ul>
+                        <li>商品名称:{{data.title}}</li>
+                        <li>价格:￥{{data.price}}</li>
+                        <li>规格:{{data.weight}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="shop-add-center">
+                <div class="shop-add-num">数量</div>
+                <div class="shop-add-operation">
+                    <span class="shop-sub">-</span>
+                    <span class="shop-add-number">1</span>
+                    <span class="shop-add-add">+</span>
+                </div>
+            </div>
+            <div class="shop-add-bottom">确定</div>
+        </div>
+    </script>
+    <!-- <footer id="footer-container"></footer> -->
+    <script src="/libs/require/require.js" data-main="/js/detail.js"></script>
+   
+</body>
+</html>
