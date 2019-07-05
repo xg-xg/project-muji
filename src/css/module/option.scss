@@ -59,14 +59,28 @@
       }
       .option-center{
         float: left;
-        margin-top:8px;
-       
+        margin-top:6px;
+        
         span{
+          margin-left:30px; 
           cursor: pointer;
           text-align: center;
           margin-top:5px;
           font-size: 12px;
           color: #7f0019;
+        }
+      }
+      #option-pic{
+        display: none;
+        position: absolute;
+        right: 250px;
+        top: 97px;
+        width: 120px;
+        height: 120px;
+        z-index: 5;
+        img{
+          width: 120px;
+          height: 120px;
         }
       }
       .option-right{
@@ -76,7 +90,7 @@
           outline: none;
           border-color: #7f0019;
           margin-top: 4px;
-          width: 60px;
+          width: 65px;
           height: 30px;
           border-radius:15px; 
           background: #ffffff;
@@ -84,7 +98,7 @@
           
           a{
             color: #7f0019;
-            font-size: 12px;
+            font-size: 13px;
             text-align: center
           }
           

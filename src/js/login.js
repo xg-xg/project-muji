@@ -1,5 +1,5 @@
 require(['require.config'],()=>{
-    require(['jquery','url','cookie'],($,url)=>{
+    require(['jquery','url','cookie','header'],($,url)=>{
        
         class Login{
             constructor(){
@@ -9,7 +9,13 @@ require(['require.config'],()=>{
                 this.btn = $('#btn');
                 this.checkbox = $('#checkbox');
                 this.bindEvents();
-                
+                this.back();
+            }
+            //添加返回事件
+            back(){
+                $('#break').on('click',()=>{
+                    window.history.go(-1);
+                })
             }
             bindEvents(){
                 this.btn.on('click',()=>{

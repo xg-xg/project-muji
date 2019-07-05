@@ -9,8 +9,22 @@ require(['require.config'],()=>{
                 this.cart();
                 this.calcAll();
                 this.calcMoney();
+                this.check();
+                this.toPay();
             }
-            
+            //刚进入页面，将每个商品的check属性都设置为true，因为默认进入页面是选中的。
+            check(){
+                console.log(888);
+                let cart = JSON.parse(localStorage.getItem('cart'));
+                cart = cart.map(shop=>{
+                  if(shop){
+                      shop.check = true;
+                  }
+                  return shop;
+                })
+                localStorage.setItem('cart',JSON.stringify(cart));
+            }
+
             cart(){
                 console.log(5)
                 let cart = localStorage.getItem('cart');
@@ -237,15 +251,31 @@ require(['require.config'],()=>{
                 let _this = this;
                 //点击全选按钮
                 $('#choose-all').on('click',function(){
-                    
                     if($(this).is(':checked')){
+                        let cart = JSON.parse(localStorage.getItem('cart'));
+                        cart = cart.map(shop=>{
+                            if(shop){
+                                shop.check =true;
+                            }
+                            return shop;
+                        })
+                        localStorage.setItem('cart',JSON.stringify(cart));
                         $('.choose').prop('checked',true);
                         _this.calcAll();
                         _this.calcMoney();
                         $('#all').css('color','')
                         $('#button').css('background',"#7f0019");
-                         $('#button').attr('disabled',true)
+                        
+                     
                     }else{
+                        let cart = JSON.parse(localStorage.getItem('cart'));
+                        cart = cart.map(shop=>{
+                            if(shop){
+                                shop.check =false;
+                            }
+                            return shop;
+                        })
+                        localStorage.setItem('cart',JSON.stringify(cart));
                         $('.choose').prop('checked',false);
                         _this.calcAll();
                         _this.calcMoney();
@@ -266,7 +296,7 @@ require(['require.config'],()=>{
                     _this.allCheck();
                      if($(this).is(':checked')){
                          let id = $(this).next('a').attr('href').split('?')[1].slice(3);
-                        console.log(id)
+                        
                          let cart = JSON.parse(localStorage.getItem('cart'));
                         cart = cart.map((shop,i)=>{
                             if(shop.id === id){
@@ -318,7 +348,25 @@ require(['require.config'],()=>{
                     
                 }
             }
-         
+         //点击结算按钮 去结算
+         toPay(){
+             $('#button').on('click',()=>{
+                 let cart = JSON.parse(localStorage.getItem('cart'));
+                 cart = cart.some(shop=>{
+                     return shop.check===true;
+                 })
+                
+                  if(cart){
+                    window.location.href = '/html/order.html';
+                  }
+                  else{
+                      $('#toast-pay').show();
+                      let timer = setTimeout(function(){
+                        $('#toast-pay').hide();
+                      },3000)
+                  }
+             })
+         }
           
         }
         new Cart();

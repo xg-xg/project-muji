@@ -5,8 +5,27 @@ define(['jquery','cookie'], ($) => {
             this.init().then(() => {
                 this.isLogin();
                 this.calcCartNum();
+                this.show();
             });
         }
+        //显示二维码
+       show(){
+           
+        $('.option-center').mouseenter(function(){
+             $('#option-pic').show();
+             
+        })
+        $('.option-center').mouseleave(function(){
+             $('#option-pic').hide();
+             $('#option-pic').mouseenter(function(){
+                 $('#option-pic').show();
+                 $('#option-pic').mouseleave(function(){
+                     $('#option-pic').hide();
+                 })
+             })
+
+    })
+    }
         isLogin(){
             this.beforeBtn = $('#login-register');
             this.afterLogin = $('#login-success');

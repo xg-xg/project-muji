@@ -35,7 +35,7 @@
                 </div>
                 <div id="show-center">
                     <p>{{item.title}}</p>
-                    <div id="ruler">尺码：{{item.des}}g</div>
+                    <div id="ruler">尺码：{{item.des}}</div>
                     <span>￥{{item.price}}</span>
                 </div>
                 <div id="show-right">
@@ -65,10 +65,10 @@
     </div>
     <div id="bottom">
         <div id="bottom-wrap">
-        <p><span>5</span>件商品</p>
-        <p>应付:<span>￥45</span></p>
+        <p><span id="shop-num"></span>件商品</p>
+        <p>应付:<span id="shop-price">￥</span>元</p>
         <div id="toPay">去付款</div>
-        </div>
+        </div> 
     </div>
     <!-- 先是隐藏，点击支付方式  弹出 -->
     <div id="model"></div>

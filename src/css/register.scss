@@ -1,16 +1,47 @@
 @import './module/base.scss';
 @import './module/header.scss';
 @import './module/footer.scss';
+#title{
+    width: 100;
+    height: 40px;
+    #title-wrap{
+        width: 1016px;
+        height: 40px;
+        margin: 0 auto;
+       
+        #break{
+            cursor: pointer;
+            float: left;
+            margin-top:13px;
+            margin-left:29px;  
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-top: 2px solid #7f0019;;
+            border-right: 2px solid #7f0019;;
+            transform: rotate(224deg);
+        }
+    }
+}
 
 form{
     width: 1000px;
-    margin: 0 auto;
+    margin-left:190px;
+    margin-top:20px;  
     &>label{
         display: block;
         margin-bottom: 5px;
         font-weight: bold;
         margin-left: 5px;
     }
+}
+form>#code{
+    color: #7f0019;
+    position: relative;
+    cursor: pointer;
+    font-size: 13px;
+    top:-52px;
+    right: -845px;;
 }
 form>h3{
     font-size: 20px;
@@ -20,7 +51,7 @@ form>h3:last-of-type{
 }
 form>input{
     display: block;
-    width: 100%;
+    width: 95%;
     height: 44px;
     border-radius: 20px;
     background-color: #f2f2f2;
@@ -33,7 +64,7 @@ form>input{
 }
 form .btn{
     display: inline-block;
-    width: 100%;
+    width: 95%;
     height: 44px;
     line-height: 44px;
     background-color: #b26574;
@@ -53,6 +84,7 @@ form>div>a{
     font-size: 13px;
 }
 form>p{
+    margin-right: 150px;
     text-align: center;
     margin-bottom: 27px;
 }
@@ -60,6 +92,8 @@ form>p>a{
     color: #60b3fa;
     font-size: 13px;
 }
+
+
 
 
 
